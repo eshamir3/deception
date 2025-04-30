@@ -24,10 +24,9 @@
         margin: 0 auto;
       }
 
-      h1, h2, h3, h4, h5, h6 {
+      h1, h2, h3 {
         line-height: 1.1;
         font-weight: 600;
-        text-wrap: balance;
       }
 
       h1, h2 {
@@ -50,12 +49,12 @@
         font-size: 130%;
       }
 
-      ul, ol {
-        padding-inline-start: 2em;
+      ul {
+        padding-left: 1.5em;
       }
 
       li + li {
-        margin-top: 0.2em;
+        margin-top: 0.8em;
       }
 
       header {
@@ -73,33 +72,22 @@
       figure {
         margin: 1em 0;
         padding: 0.5rem;
-        margin-inline: -0.5em;
         border: 1px solid var(--color-neutral-80);
-        box-shadow: 0 0.1em 0.2em var(--color-neutral-95);
-        text-align: center;
         background: white;
+        text-align: center;
       }
 
       figcaption {
-        font: 500 75% system-ui;
+        font-size: 0.9em;
         background: var(--color-neutral-95);
         padding: 0.5rem;
-        margin: -0.5rem;
         margin-top: 0.5rem;
-        counter-increment: figure;
-        text-align: left;
-      }
-
-      figcaption::before {
-        content: 'Figure ' counter(figure) ': ';
-        font-weight: bold;
-        color: var(--color-neutral-40);
       }
     </style>
   </head>
   <body>
     <header>
-      <h1><small>Assignment 4</small>Persuasive or Deceptive Visualization?</h1>
+      <h1>Persuasive or Deceptive Visualization?</h1>
       <p><strong>Emma Shamir</strong> — <em>eshamir@ucsd.edu</em></p>
     </header>
     <main>
@@ -113,10 +101,13 @@
         </figure>
         <p>Design Decisions and Rationale:</p>
         <ul>
-          <li>-2.0: Only included states where abortion rates declined, excluding those that did not align with the message.</li>
-          <li>-1.5: Used a truncated y-axis starting near -60% to exaggerate differences.</li>
-          <li>-0.5: Emotional title (“Access Cut, Abortions Drop”) frames closure as a cause.</li>
-          <li>1.0: Clear side-by-side bar comparison aids reader interpretation of trends.</li>
+          <li><strong>Score: -2.0</strong> — I chose to only include states where both clinic numbers and abortion rates declined. This created a strong visual argument for the proposition, but it also meant I was intentionally hiding states that contradicted the pattern. I made this choice because showing the full dataset made the narrative much less clear and persuasive.</li>
+
+          <li><strong>Score: -1.5</strong> — The y-axis starts at around -60% rather than zero, which exaggerates how steep the declines are. While the values are accurate, the scale gives a much more dramatic impression. I knew this would grab attention and reinforce the visual drop-off between clinic and abortion rates.</li>
+
+          <li><strong>Score: -0.5</strong> — The title “Access Cut, Abortions Drop” implies a cause-and-effect relationship that the data doesn’t directly prove. It was chosen to emotionally prime the viewer to read the chart as evidence of effectiveness, even if the reality is more complex.</li>
+
+          <li><strong>Score: 1.0</strong> — I used grouped bars for clinic change and abortion rate change. This was a clean, readable design that helps viewers instantly compare both metrics side by side, and it didn’t rely on misleading encodings.</li>
         </ul>
       </section>
 
@@ -124,27 +115,33 @@
         <h3>AGAINST the Proposition</h3>
         <figure>
           <img src="against.png" alt="Abortions rise despite clinic closures" />
-          <figcaption>Shows that in several selected states, abortion rates rose even when clinic numbers declined.</figcaption>
+          <figcaption>This chart shows states where abortion rates increased even though the number of clinics declined.</figcaption>
         </figure>
         <p>Design Decisions and Rationale:</p>
         <ul>
-          <li>-2.0: Cherry-picked states that supported the counter-narrative, excluding any with contradictory patterns.</li>
-          <li>-1.5: Used a narrow y-axis range to visually amplify small increases in abortion rates.</li>
-          <li>-0.5: Title (“Clinic Closures Backfire”) is emotionally loaded to imply unintended consequences.</li>
-          <li>0.5: Color distinction and vertical bars help make comparison intuitive.</li>
+          <li><strong>Score: -2.0</strong> — For this visualization, I filtered for the opposite trend: states where abortions went up even as clinics closed. I excluded states that didn’t support this narrative. While this technique helps make a strong counterpoint, it hides the broader truth of mixed results.</li>
+
+          <li><strong>Score: -1.5</strong> — The y-axis tops out around +15%, which is quite close to the actual data range, but still makes the increases look visually bigger than they really are. I did this to amplify the apparent growth and create a sense of backlash or unintended consequence.</li>
+
+          <li><strong>Score: -0.5</strong> — I titled it “Clinic Closures Backfire” to imply failure. This isn’t a neutral description, but it frames the increases in a way that’s provocative and easier to remember.</li>
+
+          <li><strong>Score: 1.0</strong> — The visualization uses clean grouped bars again, which allows readers to compare the metrics without any distortion in the bar sizes themselves. Even though the context is filtered, the chart itself is honest.</li>
         </ul>
       </section>
 
       <section>
         <h2>Final Reflection</h2>
         <p>
-          These two visualizations were designed to make opposite arguments about the same phenomenon: whether a decline in abortion clinics leads to a decline in abortions. For the “FOR” perspective, I selectively included states like Missouri and Rhode Island, where both clinic numbers and abortion rates dropped significantly. This was intended to imply a direct correlation. The truncated y-axis exaggerated the scale of the drops, making them appear more dramatic. I chose an emotionally charged title to further reinforce this association. The color scheme and alignment were chosen to make the data visually persuasive and emphasize the start similarities between abortion rate and clinic closure rate.
+          These two visualizations were designed to make opposite arguments about the same phenomenon: whether a decline in abortion clinics leads to a decline in abortions. For the “FOR” perspective, I selectively included states like Missouri and Rhode Island, where both clinic numbers and abortion rates dropped significantly. This was intended to imply a direct correlation. The truncated y-axis exaggerated the scale of the drops, making them appear more dramatic. I chose an emotionally charged title to further reinforce this association. The color scheme and alignment were chosen to make the data visually persuasive and emphasize the stark similarities between abortion rate and clinic closure rate.
         </p>
         <p>
           The “AGAINST” visualization followed a similar design strategy but flipped the implication. I hand-picked states that contradicted the proposition — places where abortions rose despite fewer clinics. Again, the y-axis was truncated to dramatize small increases, and the title was chosen to suggest a counterintuitive backlash. While both charts technically use real data, they each manipulate framing and context to persuade the viewer toward opposing conclusions.
         </p>
         <p>
-          Through this project, I realized how easy it is to manipulate data in order to persuade an audience of anything! The fact that the same data can be used in order to create two graphs that argue completely different points is evidence that deception without technical data fabrication is easy, and likely very prevalent in the media!
+          Through this project, I realized how easy it is to manipulate data in order to persuade an audience of anything! The fact that the same data can be used in order to create two graphs that argue completely different points is evidence that deception without technical data fabrication is easy, and likely very prevalent in the media! 
+        </p>
+        <p>
+          What really stood out to me is how deception can happen without lying — just through framing, omission, and emphasis. I now define ethical visualization as not just using honest numbers, but also being honest about what’s left out and why. This project made me realize how persuasive charts can be, and how important it is to approach all visual data with a critical eye, because "not lying" does not mean that the visualization was dont earnestly. 
         </p>
       </section>
     </main>
