@@ -3,46 +3,35 @@
   <head>
     <title>Project 2 Report</title>
     <style>
-      :root {
-        --color-neutral-95: hsl(220 10% 95%);
-        --color-neutral-90: hsl(220 10% 90%);
-        --color-neutral-80: hsl(220 10% 80%);
-        --color-neutral-70: hsl(220 10% 70%);
-        --color-neutral-60: hsl(220 10% 60%);
-        --color-neutral-50: hsl(220 10% 50%);
-        --color-neutral-40: hsl(220 10% 40%);
-        --color-neutral-30: hsl(220 10% 30%);
-        --color-neutral-20: hsl(220 10% 20%);
-        --color-neutral-10: hsl(220 10% 10%);
-      }
-
       html {
-        font: 100%/1.5 system-ui;
-        counter-reset: figure;
-        background: var(--color-neutral-95);
+        font: 100%/1.5 'Times New Roman', serif;
+        background: hsl(220, 10%, 95%);
         max-width: min(75vw, 80em);
         margin: 0 auto;
       }
 
       h1, h2, h3 {
+        font-family: 'Times New Roman', serif;
         line-height: 1.1;
         font-weight: 600;
       }
 
       h1, h2 {
-        border-bottom: 1px solid var(--color-neutral-80);
+        border-bottom: 1px solid hsl(220, 10%, 80%);
         padding-bottom: 0.2em;
       }
 
       h1 {
         margin-block: 1em 0.5rem;
         font-size: clamp(2.5em, 150% + 2vh + 2vw, 10vmin);
-        font-weight: 800;
+        font-weight: bold;
+        text-align: left;
+        color: black;
       }
 
       h2 {
         font-size: 180%;
-        color: var(--color-neutral-30);
+        color: hsl(220, 10%, 30%);
       }
 
       h3 {
@@ -59,12 +48,11 @@
 
       header {
         padding-block: 1em;
-        text-align: center;
       }
 
       main {
         background: white;
-        color: var(--color-neutral-20);
+        color: hsl(220, 10%, 20%);
         border-radius: 1rem;
         padding: 0.1rem 2rem;
       }
@@ -72,16 +60,23 @@
       figure {
         margin: 1em 0;
         padding: 0.5rem;
-        border: 1px solid var(--color-neutral-80);
+        border: 1px solid hsl(220, 10%, 80%);
         background: white;
         text-align: center;
       }
 
       figcaption {
-        font-size: 0.9em;
-        background: var(--color-neutral-95);
+        font-size: 0.95em;
+        background: hsl(220, 10%, 95%);
         padding: 0.5rem;
         margin-top: 0.5rem;
+        text-align: left;
+      }
+
+      figcaption strong {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 0.2em;
       }
     </style>
   </head>
@@ -97,17 +92,20 @@
         <h3>FOR the Proposition</h3>
         <figure>
           <img src="pro.png" alt="Abortions drop as clinics close" />
-          <figcaption>This chart shows select states where abortion clinic closures correlated with abortion rate declines.</figcaption>
+          <figcaption>
+            <strong>Figure 1:</strong>
+            Abortion rates drop alongside clinic closures — possibly because fewer clinics means fewer opportunities, fewer options, and more barriers.
+          </figcaption>
         </figure>
         <p>Design Decisions and Rationale:</p>
         <ul>
-          <li><strong>Score: -2.0</strong> — I chose to only include states where both clinic numbers and abortion rates declined. This created a strong visual argument for the proposition, but it also meant I was intentionally hiding states that contradicted the pattern. I made this choice because showing the full dataset made the narrative much less clear and persuasive.</li>
+          <li><strong>Score: -2.0</strong> — I chose to only include states where both clinic numbers and abortion rates declined. This created a clear and persuasive argument for the proposition, but it meant intentionally hiding states that didn’t fit. I considered showing all states and using color to highlight “pro” examples, but it diluted the clarity of the narrative too much. What worked was how sharply this selection supported the point — what didn’t work was that it required giving up nuance.</li>
 
-          <li><strong>Score: -1.5</strong> — The y-axis starts at around -60% rather than zero, which exaggerates how steep the declines are. While the values are accurate, the scale gives a much more dramatic impression. I knew this would grab attention and reinforce the visual drop-off between clinic and abortion rates.</li>
+          <li><strong>Score: -1.5</strong> — The y-axis starts at -60% rather than zero, exaggerating how steep the declines are. This decision worked well to give the visual punch I wanted — the bars visually drop hard. The downside is it could mislead viewers about the scale of change. I thought about using a zero baseline, but the bars looked too modest and didn’t match the story I was trying to emphasize.</li>
 
-          <li><strong>Score: -0.5</strong> — The title “Access Cut, Abortions Drop” implies a cause-and-effect relationship that the data doesn’t directly prove. It was chosen to emotionally prime the viewer to read the chart as evidence of effectiveness, even if the reality is more complex.</li>
+          <li><strong>Score: -0.5</strong> — The title “Access Cut, Abortions Drop” implies causation when the data only shows correlation. That felt risky, but it was a choice that worked well to prime viewers emotionally. I tried more neutral titles but they felt forgettable and didn’t support the persuasive intent as strongly.</li>
 
-          <li><strong>Score: 1.0</strong> — I used grouped bars for clinic change and abortion rate change. This was a clean, readable design that helps viewers instantly compare both metrics side by side, and it didn’t rely on misleading encodings.</li>
+          <li><strong>Score: 1.0</strong> — I used grouped bars for clinic change and abortion rate change. This was a straightforward and clear design choice that made comparisons intuitive. I considered a dot plot but it felt too abstract and didn’t show the relationship between variables as visually as side-by-side bars did.</li>
         </ul>
       </section>
 
@@ -115,17 +113,20 @@
         <h3>AGAINST the Proposition</h3>
         <figure>
           <img src="against.png" alt="Abortions rise despite clinic closures" />
-          <figcaption>This chart shows states where abortion rates increased even though the number of clinics declined.</figcaption>
+          <figcaption>
+            <strong>Figure 2:</strong>
+            In some states, clinic closures didn’t stop abortions — in fact, abortion rates rose, perhaps in defiance or due to people seeking care across state lines.
+          </figcaption>
         </figure>
         <p>Design Decisions and Rationale:</p>
         <ul>
-          <li><strong>Score: -2.0</strong> — For this visualization, I filtered for the opposite trend: states where abortions went up even as clinics closed. I excluded states that didn’t support this narrative. While this technique helps make a strong counterpoint, it hides the broader truth of mixed results.</li>
+          <li><strong>Score: -2.0</strong> — I filtered for the opposite pattern here: states where abortions rose despite fewer clinics. Just like before, this was about pushing a clean message. I thought about showing a broader trend with more variation, but that muddied the argument. This worked well to build a strong contrast with the first chart, though it loses credibility if the audience realizes how curated it is.</li>
 
-          <li><strong>Score: -1.5</strong> — The y-axis tops out around +15%, which is quite close to the actual data range, but still makes the increases look visually bigger than they really are. I did this to amplify the apparent growth and create a sense of backlash or unintended consequence.</li>
+          <li><strong>Score: -1.5</strong> — The y-axis ends just above 15%, which makes modest increases look quite dramatic. I used this trick because with a full 0–100% axis, the increases looked tiny. This worked to make the story feel more urgent, but it does cross into visual exaggeration — and I knew that. Still, it was more persuasive than honest scaling.</li>
 
-          <li><strong>Score: -0.5</strong> — I titled it “Clinic Closures Backfire” to imply failure. This isn’t a neutral description, but it frames the increases in a way that’s provocative and easier to remember.</li>
+          <li><strong>Score: -0.5</strong> — The title “Clinic Closures Backfire” is intentionally inflammatory. I originally considered “Unexpected Outcome,” but it lacked impact. This framing was more memorable and made people pay attention, even if it overstates the certainty of a “backfire.”</li>
 
-          <li><strong>Score: 1.0</strong> — The visualization uses clean grouped bars again, which allows readers to compare the metrics without any distortion in the bar sizes themselves. Even though the context is filtered, the chart itself is honest.</li>
+          <li><strong>Score: 1.0</strong> — Again, I used grouped bars for consistency and clarity. I debated adding trend lines or ratios, but that felt like too much for a message that should be easily scanned. The simplicity of grouped bars won here again — they were readable and required no decoding.</li>
         </ul>
       </section>
 
@@ -138,10 +139,10 @@
           The “AGAINST” visualization followed a similar design strategy but flipped the implication. I hand-picked states that contradicted the proposition — places where abortions rose despite fewer clinics. Again, the y-axis was truncated to dramatize small increases, and the title was chosen to suggest a counterintuitive backlash. While both charts technically use real data, they each manipulate framing and context to persuade the viewer toward opposing conclusions.
         </p>
         <p>
-          Through this project, I realized how easy it is to manipulate data in order to persuade an audience of anything! The fact that the same data can be used in order to create two graphs that argue completely different points is evidence that deception without technical data fabrication is easy, and likely very prevalent in the media! 
+          Through this project, I realized how easy it is to manipulate data in order to persuade an audience of anything! The fact that the same data can be used in order to create two graphs that argue completely different points is evidence that deception without technical data fabrication is easy, and likely very prevalent in the media! What really stood out to me is how deception can happen without lying — just through framing, omission, and emphasis. I now define ethical visualization as not just using honest numbers, but also being honest about what’s left out and why. This project made me realize how persuasive charts can be, and how important it is to approach all visual data with a critical eye, because "not lying" does not mean the visualization was done earnestly.
         </p>
         <p>
-          What really stood out to me is how deception can happen without lying — just through framing, omission, and emphasis. I now define ethical visualization as not just using honest numbers, but also being honest about what’s left out and why. This project made me realize how persuasive charts can be, and how important it is to approach all visual data with a critical eye, because "not lying" does not mean that the visualization was dont earnestly. 
+          What surprised me most is how quickly I was able to turn the same dataset into two emotionally compelling, totally opposite stories — and how right both of them felt when you looked at them in isolation. That’s what’s so slippery about data visualization. It’s not about the math — it’s about what you decide to show, emphasize, and name. For me, ethical visualization now means not just asking, “Is this true?” but also “What truth am I hiding to make this one stand out?” In this project, hiding data was my most persuasive move. That’s wild. I don’t think there’s a hard line between persuasive and misleading — it depends on whether the viewer is allowed to ask questions. If they’re boxed in by the design, you’ve crossed the line.
         </p>
       </section>
     </main>
